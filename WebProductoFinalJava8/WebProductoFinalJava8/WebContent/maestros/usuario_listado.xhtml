@@ -1,0 +1,170 @@
+ <ui:composition template="/template/master.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="title">
+        .:Listado de Usuarios:.
+    </ui:define>
+
+    <ui:define name="titleCont">
+        <span>listado de Usuarios </span>
+    </ui:define>
+
+    <ui:define name="content">
+    
+		<h:form id="frmListado">
+		
+			<div class="row">
+            <div class="col-sm-3">
+            
+               <div class="form-group">
+                   <h:outputLabel for="nombre"
+                   				  value="Nombre:"
+                   				  styleClass="control-label"/>
+
+                   <p:inputText 	autocomplete="off"
+                   					id="nombre"
+                   					styleClass="form-control"
+                   					value="#{usuarioMB.usuario.nombre}"
+                   					maxlength="240"
+                   					label="nombre"
+                   					placeholder="Ingrese el nombre"/>
+               </div>
+
+            </div>
+            <div class="col-sm-3">
+            
+               <div class="form-group">
+                   <h:outputLabel for="usuario"
+                   				  value="Usuario:"
+                   				  styleClass="control-label"/>
+
+                   <p:inputText 	autocomplete="off"
+                   					id="usuario"
+                   					styleClass="form-control"
+                   					value="#{usuarioMB.usuario.usuario}"
+                   					maxlength="240"
+                   					label="usuario"
+                   					placeholder="Ingrese el usuario"/>
+               </div>
+
+            </div>
+
+							
+            <div class="col-sm-5 text-right" >
+            	<div class="form-group box-main-btn">
+            		<span style="display: block;height: 30px;"></span>
+            		
+            		<p:commandButton 	value="Limpiar" 
+            							update="tblUsuarios,nombre,usuario"
+                						actionListener="#{usuarioMB.limpiar()}" 
+                						styleClass="btn btn-success"
+                            			icon="icon-trash"
+                						ajax="true" />
+                						
+                						
+            		<p:commandButton 	value="Buscar" 
+            							update="frmListado:tblUsuarios"
+                						actionListener="#{usuarioMB.buscar()}" 
+                						styleClass="btn btn-secondary btn-border"
+                						icon="icon-magnifying-glass"
+                            			ajax="true" />
+                       
+                            			
+                	<p:commandButton 	value="Nuevo"
+                						action="#{usuarioMB.nuevo()}" 
+                						styleClass="btn btn-primary"
+                            			icon="icon-add-to-list"
+                						ajax="false" />
+ 
+                </div>
+            </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-sm-12">
+    		<div class="form-group table-responsive box-table-class">
+
+        							<p:dataTable 	id="tblUsuarios"
+                                    				var="usuario"
+                                    				value="#{usuarioMB.lstUsuarios}"
+                                    				rowKey="#{usuario.codigo}"
+	                                                paginator="true"
+	                                                paginatorPosition="top"
+	                                                rowsPerPageTemplate="10,20,30,40,50"
+	                                                rows="10"
+	                                                styleClass="table table-bordered"
+		                                    		emptyMessage="No existen registros"
+                                    				rowIndexVar="item"
+                                    				style="margin-bottom:0">
+
+											<p:column style="width:40px;text-align:center">
+												<f:facet name="header" >
+													<h:outputText value="Código"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{usuario.codigo}"></h:outputText>
+											</p:column>
+								
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="Nombre"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{usuario.nombre}"></h:outputText>
+											</p:column>
+											
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="Usuario"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{usuario.usuario}"></h:outputText>
+											</p:column>
+										<p:column headerText="Accion" style="width:120px;text-align:center" exportable="false">
+											<p:commandButton
+													title="Modificar"
+													action="#{usuarioMB.modificar(usuario)}"
+													ajax="false"
+													icon="ui-icon ui-icon-pencil"
+													styleClass="colorSuccess"/>
+											<p:commandButton
+													icon="ui-icon ui-icon-trash"
+													title="Eliminar"
+													actionListener="#{usuarioMB.eliminar(usuario)}"
+													ajax="true"
+													update="tblUsuarios"
+											/>
+										</p:column>
+                                    </p:dataTable>
+    		</div>
+
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-sm-12 text-right">
+    			<p:commandButton 	value="PDF"
+    								title="Exportar PDF"
+                					action="#{usuarioMB.exportPDF()}"
+                					styleClass="btn btn-default"
+                					ajax="false" />
+                					
+               	<p:commandButton 	value="XLS"
+               						title="Exportar Excel"
+                					action="#{usuarioMB.exportExcel()}"
+                					styleClass="btn btn-default"
+                					ajax="false" />
+    		</div>
+    	</div>
+
+
+		</h:form>
+    </ui:define>
+
+    <ui:define name="footerCont">
+        <script type="text/javascript" charset="utf-8">
+        	$("#sidebar-1").removeClass("active");
+        	$("#sidebar-2").removeClass("active");
+           $("#sidebar-3").addClass("active");
+        </script>
+    </ui:define>
+</ui:composition>

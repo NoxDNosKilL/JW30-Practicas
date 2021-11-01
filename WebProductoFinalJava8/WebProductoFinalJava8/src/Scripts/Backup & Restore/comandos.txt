@@ -1,0 +1,4 @@
+-- Exportar
+exp JavaWeb/123456 file=g:\tmp\JavaWeb.dmp
+-- Importar
+imp JavaWeb/123456 fromuser=JavaWeb file=g:\tmp\JavaWeb.dmp

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+</h:head>    
+<h:body>
+	<h:form>
+		<p:panelGrid>
+			<p:outputLabel 	value="Nombre"/>
+			<p:inputText 	id="nombre"
+							value="#{albumMB.album.nombre}"
+							size="100" />
+			
+			<p:commandButton value="Buscar"
+						 	actionListener="#{albumMB.listar()}"
+						 	ajax="true"
+						 	update="tabla"/>
+
+			<p:commandButton value="Limpiar"
+						 	actionListener="#{albumMB.limpiar()}"
+						 	ajax="true"
+						 	update="tabla,nombre"/>
+			
+			<p:commandButton value="Nuevo"
+						 	action="#{albumMB.nuevo()}"/>
+		</p:panelGrid>
+		<p:panel style="height:50px;"></p:panel>
+		<p:dataTable id="tabla" var="album" value="#{albumMB.albums}">
+			
+			<p:column headerText="Código" >
+				<h:outputText value="#{album.codigo}" />
+			</p:column>
+
+			<p:column headerText="Nombre">
+				<h:outputText value="#{album.nombre}" />
+			</p:column>
+
+			<p:column headerText="Descripción">
+				<h:outputText value="#{album.descripcion}" />
+			</p:column>
+			
+			<p:column headerText="Acción">
+				<p:commandButton 	value="Editar"
+						 			action="#{albumMB.editar(album)}"/>
+				<p:commandButton 	value="Eliminar"
+						 			action="#{albumMB.eliminar(album)}"
+						 			ajax="true"
+						 			update="tabla"/>
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>

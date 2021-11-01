@@ -1,0 +1,51 @@
+package pe.edu.galaxy.training.java.web.servicio.implementacion;
+
+import java.util.List;
+
+import pe.edu.galaxy.training.java.web.entity.Usuario;
+import pe.edu.galaxy.training.java.web.servicio.excepcion.ServiceException;
+import pe.edu.galaxy.training.java.web.servicio.interfases.UsuarioService;
+
+public class UsuarioServiceImpl implements UsuarioService {
+
+	public UsuarioServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public List<Usuario> listar(String razonSocial) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Usuario buscarXCodigo(Long codigo) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean agregar(Usuario usuario) throws ServiceException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean modificar(Usuario usuario) throws ServiceException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean eliminar(Usuario usuario) throws ServiceException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Usuario validarAcceso(Usuario usuario) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+</h:head>    
+<h:body>
+	<h:form>
+		<p:panelGrid columns="5">
+		
+			<p:outputLabel value = "Ingrese nombre:"/>
+			
+			<p:inputText value = "#{postulanteMB.postulante.nombre}"
+						 id="nombre"/>
+						 
+			<p:commandButton	value = "Buscar"
+								actionListener ="#{postulanteMB.listar()}"
+								ajax= "true"
+								update= "tblPostulantes"/>
+								
+			<p:commandButton	value = "Limpiar"
+								actionListener ="#{postulanteMB.limpiar()}"
+								ajax= "true"
+								update= "tblPostulantes,nombre"/>
+								
+			<p:commandButton	value = "Nuevo"
+								action = "#{postulanteMB.nuevo()}"/>
+									
+		</p:panelGrid>
+	
+	
+		<p:dataTable id="tblPostulantes" var="postulante" value="#{postulanteMB.postulantes}">
+			
+			<p:column headerText="Nombre">
+				<h:outputText value="#{postulante.nombre}" />
+			</p:column>
+
+			<p:column headerText="Paterno">
+				<h:outputText value="#{postulante.apelPaterno}" />
+			</p:column>
+
+			<p:column headerText="Materno">
+				<h:outputText value="#{postulante.apelMaterno}" />
+			</p:column>
+	
+			<p:column headerText="Genero">
+				<h:outputText value="#{postulante.genero}" />
+			</p:column>
+
+			<p:column headerText="Dni">
+				<h:outputText value="#{postulante.dni}" />
+			</p:column>
+
+			<p:column headerText="Nacimiento">
+				<h:outputText value="#{postulante.fechaNacimiento}" />
+			</p:column>
+			
+			<p:column headerText="Email">
+			<h:outputText value="#{postulante.email}" />
+			</p:column>
+						
+			<p:column headerText="Telefono">
+				<h:outputText value="#{postulante.tlfFijo}" />
+			</p:column>
+
+			<p:column headerText="Celular">
+				<h:outputText value="#{postulante.celular}" />
+			</p:column>
+
+			<p:column headerText="Direccion">
+				<h:outputText value="#{postulante.direccion}" />
+			</p:column>
+			
+			<p:column headerText="Distrito">
+				<h:outputText value="#{postulante.distrito}" />
+			</p:column>
+	
+			<p:column headerText="Provincia">
+				<h:outputText value="#{postulante.provincia}" />
+			</p:column>
+
+			<p:column headerText="Departamento">
+				<h:outputText value="#{postulante.departamento}" />
+			</p:column>
+			
+			<p:column headerText="Acciones">
+				<p:commandButton	value = "Eliminar"
+									actionListiner ="#{postulanteMB.eliminar(postulante)}"
+									ajax= "true"
+									update= "tblPostulantes"
+									/>
+									
+				<p:commandButton	value = "Modificar"
+									action ="#{postulanteMB.modificar(postulante)}"/>
+			</p:column>
+			
+
+
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>

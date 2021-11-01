@@ -1,0 +1,161 @@
+ <ui:composition template="/template/master.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="title">
+        .:Listado de Productos:.
+    </ui:define>
+
+    <ui:define name="titleCont">
+        <span>listado de Productos </span>
+    </ui:define>
+
+    <ui:define name="content">
+    
+		<h:form id="frmListado">
+		
+			<div class="row">
+            <div class="col-sm-7">
+            
+               <div class="form-group">
+                   <h:outputLabel for="nombre"
+                   				  value="Nombre:"
+                   				  styleClass="control-label"/>
+
+                   <p:inputText 	autocomplete="off"
+                   					id="nombre"
+                   					styleClass="form-control"
+                   					value="#{productoMB.producto.nombre}"
+                   					maxlength="240"
+                   					label="nombre"
+                   					placeholder="Ingrese el nombre"/>
+               </div>
+
+            </div>
+
+							
+            <div class="col-sm-5 text-right" >
+            	<div class="form-group box-main-btn">
+            		<span style="display: block;height: 30px;"></span>
+            		
+            		<p:commandButton 	value="Limpiar" 
+            							update="tblProductos,nombre"
+                						actionListener="#{productoMB.limpiar()}" 
+                						styleClass="btn btn-success"
+                            			icon="icon-trash"
+                						ajax="true" />
+                						
+                						
+            		<p:commandButton 	value="Buscar" 
+            							update="frmListado:tblProductos"
+                						actionListener="#{productoMB.buscar()}" 
+                						styleClass="btn btn-secondary btn-border"
+                						icon="icon-magnifying-glass"
+                            			ajax="true" />
+                       
+                            			
+                	<p:commandButton 	value="Nuevo"
+                						action="#{productoMB.nuevo()}" 
+                						styleClass="btn btn-primary"
+                            			icon="icon-add-to-list"
+                						ajax="false" />
+ 
+                </div>
+            </div>
+    	</div>
+    	
+    	<div class="row">
+    		<div class="col-sm-12">
+    		<div class="form-group table-responsive box-table-class">
+
+        							<p:dataTable 	id="tblProductos"
+                                    				var="producto"
+                                    				value="#{productoMB.lstProductos}"
+                                    				rowKey="#{producto.codigo}"
+	                                                paginator="true"
+	                                                paginatorPosition="top"
+	                                                rowsPerPageTemplate="5,10,20,30,40,50"
+	                                                rows="5"
+	                                                styleClass="table table-bordered"
+		                                    		emptyMessage="No existen registros"
+                                    				rowIndexVar="item"
+                                    				style="margin-bottom:0">
+
+											<p:column style="width:40px;text-align:center">
+												<f:facet name="header" >
+													<h:outputText value="Código"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{producto.codigo}"></h:outputText>
+											</p:column>
+								
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="Nombre"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{producto.nombre}"></h:outputText>
+											</p:column>
+											
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="Precio"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{producto.precio}"></h:outputText>
+											</p:column>
+											
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="Stock"></h:outputText>
+												</f:facet>
+												<h:outputText value="#{producto.stock}"></h:outputText>
+											</p:column>
+
+										<p:column headerText="Accion" style="width:120px;text-align:center" exportable="false">
+											<p:commandButton
+													title="Modificar"
+													action="#{productoMB.modificar(producto)}"
+													ajax="false"
+													icon="ui-icon ui-icon-pencil"
+													styleClass="colorSuccess"/>
+											<p:commandButton
+													icon="ui-icon ui-icon-trash"
+													title="Eliminar"
+													actionListener="#{productoMB.eliminar(producto)}"
+													ajax="true"
+													update="tblProductos"
+											/>
+										</p:column>
+                                    </p:dataTable>
+    		</div>
+
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-sm-12 text-right">
+    			<p:commandButton 	value="PDF"
+    								title="Exportar PDF"
+                					action="#{productoMB.exportPDF()}"
+                					styleClass="btn btn-default"
+                					ajax="false" />
+                					
+               	<p:commandButton 	value="XLS"
+               						title="Exportar Excel"
+                					action="#{productoMB.exportExcel()}"
+                					styleClass="btn btn-default"
+                					ajax="false" />
+    		</div>
+    	</div>
+
+
+		</h:form>
+    </ui:define>
+
+    <ui:define name="footerCont">
+        <script type="text/javascript" charset="utf-8">
+        	$("#sidebar-1").removeClass("active");
+            $("#sidebar-2").addClass("active");
+        </script>
+    </ui:define>
+</ui:composition>

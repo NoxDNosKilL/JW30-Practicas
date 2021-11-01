@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+</h:head>    
+<h:body>
+	<h:form>
+		<p:panelGrid columns="2">
+			
+			<p:outputLabel value="Nombre:"/>
+			<p:inputText 	value="#{productoMB.producto.nombre}"/>
+			
+			<p:outputLabel value="Precio:"/>
+			<p:inputText 	value="#{productoMB.producto.precio}"/>
+
+			<p:outputLabel value="Stock:"/>
+			<p:inputText 	value="#{productoMB.producto.stock}"/>
+			
+			
+			<p:commandButton 	value="Grabar" 
+								actionListener="#{productoMB.grabar()}"/>
+								
+			<p:commandButton 	value="Cancelar"
+								action="#{productoMB.cancelar()}"/>
+			
+		</p:panelGrid>
+		
+	</h:form>
+</h:body>
+</html>

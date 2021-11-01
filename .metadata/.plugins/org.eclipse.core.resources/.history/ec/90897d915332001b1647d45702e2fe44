@@ -1,0 +1,9 @@
+package pe.edu.galaxy.training.java.web.presentacion.constantes;
+
+public class Constantes {
+
+	public Constantes() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

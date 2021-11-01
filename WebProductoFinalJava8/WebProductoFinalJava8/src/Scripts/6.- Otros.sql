@@ -1,0 +1,1 @@
+select aud_fecha, to_char(aud_fecha,'dd/mm/yyyy hh24:mi:ss') from producto;

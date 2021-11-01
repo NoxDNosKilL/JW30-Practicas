@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+</h:head>    
+<h:body>
+	<h:form>
+		<p:panelGrid columns="5">
+			
+			<p:outputLabel value="Ingrese nombre:"/>
+			
+			<p:inputText 	value="#{productoMB.producto.nombre}"
+							id="nombre"/>
+			
+			<p:commandButton 	value="Buscar" 
+								actionListener="#{productoMB.listar()}" 
+								ajax="true"
+								update="tblProductos"/>
+								
+			<p:commandButton 	value="Limpiar"
+								actionListener="#{productoMB.limpiar()}" 
+								ajax="true"
+								update="tblProductos,nombre" />
+								
+			<p:commandButton 	value="Nuevo"
+								action="#{productoMB.nuevo()}"/>
+			
+		</p:panelGrid>
+	
+	
+		<p:dataTable id="tblProductos" var="producto" value="#{productoMB.productos}">
+			
+			<p:column headerText="Código">
+				<h:outputText value="#{producto.id}" />
+			</p:column>
+
+			<p:column headerText="Nombre">
+				<h:outputText value="#{producto.nombre}" />
+			</p:column>
+
+			<p:column headerText="Precio">
+				<h:outputText value="#{producto.precio}" />
+			</p:column>
+			
+			<p:column headerText="Stock">
+				<h:outputText value="#{producto.stock}" />
+			</p:column>
+			
+			<p:column headerText="Acciones">
+				<p:commandButton 	value="Eliminar"
+									actionListener="#{productoMB.eliminar(producto)}"
+									ajax="true"
+									update="tblProductos"
+									/>
+				<p:commandButton 	value="Modificar"
+									action="#{productoMB.modificar(producto)}"
+									/>
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>

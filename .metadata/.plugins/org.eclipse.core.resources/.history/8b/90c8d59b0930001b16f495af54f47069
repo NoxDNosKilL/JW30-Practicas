@@ -1,0 +1,14 @@
+package pe.edu.galaxy.training.java.web.persistencia.interfaces;
+
+
+import java.util.List;
+
+import pe.edu.galaxy.training.java.web.entity.Usuario;
+import pe.edu.galaxy.training.java.web.persistencia.exception.DAOException;
+
+public interface UsuarioDAO {
+
+	List <Usuario> validar(String usuario, String clave) throws DAOException;
+
+	
+}

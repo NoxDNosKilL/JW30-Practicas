@@ -1,0 +1,51 @@
+package pe.edu.galaxy.training.java.web.persistencia.implemtacion;
+
+import java.util.List;
+
+import pe.edu.galaxy.training.java.web.entity.Usuario;
+import pe.edu.galaxy.training.java.web.persistencia.exception.DAOException;
+import pe.edu.galaxy.training.java.web.persistencia.interfaces.UsuarioDAO;
+
+public class UsuarioDAOImpl implements UsuarioDAO {
+
+	public UsuarioDAOImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public List<Usuario> listar(String nombre) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Usuario buscarXCodigo(Long codigo) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean agregar(Usuario usuario) throws DAOException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean modificar(Usuario usuario) throws DAOException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean eliminar(Usuario usuario) throws DAOException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Usuario validarAcceso(Usuario usuario) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

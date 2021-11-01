@@ -1,0 +1,14 @@
+127.0.0.1 - - [24/Nov/2020:18:09:19 -0500] "GET / HTTP/1.1" 404 687
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/ HTTP/1.1" 200 4434
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/theme.css.xhtml?ln=primefaces-aristo HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/css/bootstrap.min.css.xhtml HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/primefaces.css.xhtml?ln=primefaces&v=5.3 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/css/font_ico.css.xhtml HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&v=5.3 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&v=5.3 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/css/login_base.css.xhtml HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/javax.faces.resource/primefaces.js.xhtml?ln=primefaces&v=5.3 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/resources/img/galaxy-training-logo.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:20 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/RES_NOT_FOUND HTTP/1.1" 404 735
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:21 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/RES_NOT_FOUND HTTP/1.1" 404 735
+0:0:0:0:0:0:0:1 - - [24/Nov/2020:18:09:21 -0500] "GET /AppWebJSFBSSpringJPAServiceDes/resources/fonts/icomoon.ttf?rdbf5p HTTP/1.1" 304 -

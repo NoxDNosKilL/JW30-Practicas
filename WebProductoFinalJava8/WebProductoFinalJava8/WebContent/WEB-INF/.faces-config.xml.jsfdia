@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="alumno_listado::alumno_listado.xhtml"
+    NAME="output" PATH="alumno_listado.xhtml"
+    TARGET="rules:alumno_listado.xhtml" TITLE="alumno_listado" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="alumno_registro::alumno_registro.xhtml"
+    NAME="output1" PATH="alumno_registro.xhtml"
+    TARGET="rules:alumno_registro.xhtml" TITLE="alumno_registro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:alumno_listado.xhtml"
+  PATH="alumno_listado.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:alumno_registro.xhtml"
+  PATH="alumno_registro.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

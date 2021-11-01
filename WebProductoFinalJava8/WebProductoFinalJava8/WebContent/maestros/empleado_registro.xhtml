@@ -1,0 +1,189 @@
+ <ui:composition template="/template/master.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="title">
+        .:Registro de Empleados:.
+    </ui:define>
+
+    <ui:define name="titleCont">
+        <span>Registro de Empleados </span>
+    </ui:define>
+
+    <ui:define name="content">
+		<h:form>
+
+				<div class="row">
+	            	<div class="col-sm-2">
+	               		<div class="form-group">
+	                   		<h:outputLabel 	for="codigo"
+	                   					  	value="Código:"
+	                   					  	styleClass="control-label"/>
+	
+	                   		<p:inputText 	autocomplete="off"
+	                   						id="codigo"
+	                   						readonly="true"
+	                   						styleClass="form-control"
+	                   						value="#{empleadoMB.empleadoBean.codigo}"
+	                   						maxlength="6"
+	                   						label="codigo"/>
+	               		</div>
+	            	</div>
+	            	
+	            	<div class="col-sm-3">
+	               		<div class="form-group">
+	                   		<h:outputLabel 	for="nroDocumento"
+	                   					  	value="Nro Documento:"
+	                   					  	styleClass="control-label"/>
+	
+	                   		<p:inputText 	autocomplete="off"
+	                   						id="nroDocumento"
+	                   						readonly="false"
+	                   						styleClass="form-control"
+	                   						value="#{empleadoMB.empleadoBean.nroDocumento}"
+	                   						maxlength="15"
+	                   						label="nroDocumento"/>
+	               		</div>
+	            	</div>
+            	</div>
+            	
+            	<div class="row">
+	            	<div class="col-sm-8">
+		               <div class="form-group">
+		                   <h:outputLabel for="apellidoPaterno"
+		                   				  value="Apellido Paterno:"
+		                   				  styleClass="control-label"/>
+		
+		                   <p:inputText 	autocomplete="off"
+		                   					id="apellidoPaterno"
+		                   					styleClass="form-control"
+		                   					value="#{empleadoMB.empleadoBean.apellidoPaterno}"
+		                   					maxlength="60"
+		                   					label="apellidoPaterno"/>
+		               </div>
+		            </div>
+	            </div>
+            	
+            	<div class="row">
+		            <div class="col-sm-8">
+		               <div class="form-group">
+		                   <h:outputLabel for="apellidoMaterno"
+		                   				  value="Apellido Materno:"
+		                   				  styleClass="control-label"/>
+		
+		                   <p:inputText 	autocomplete="off"
+		                   					id="apellidoMaterno"
+		                   					styleClass="form-control"
+		                   					value="#{empleadoMB.empleadoBean.apellidoMaterno}"
+		                   					maxlength="60"
+		                   					label="apellidoMaterno"/>
+		               </div>
+		            </div>
+				</div>
+
+            <div class="row">
+
+             <div class="col-sm-8">
+               <div class="form-group">
+                   <h:outputLabel for="nombre"
+                   				  value="Nombre:"
+                   				  styleClass="control-label"/>
+
+                   <p:inputText 	autocomplete="off"
+                   					id="nombre"
+                   					styleClass="form-control"
+                   					value="#{empleadoMB.empleadoBean.nombre}"
+                   					maxlength="60"
+                   					label="nombre"/>
+               </div>
+            </div>
+             
+    		</div>
+
+	            
+	         <div class="row">
+	             <div class="col-sm-8">
+	               <div class="form-group">
+	                   <h:outputLabel for="direccion"
+	                   				  value="Dirección:"
+	                   				  styleClass="control-label"/>
+	
+	                   <p:inputText 	autocomplete="off"
+	                   					id="direccion"
+	                   					styleClass="form-control"
+	                   					value="#{empleadoMB.empleadoBean.direccion}"
+	                   					maxlength="220"
+	                   					label="direccion"/>
+	               </div>
+	            </div>
+    		</div>
+    		
+    		 <div class="row">
+	             <div class="col-sm-4">
+	               <div class="form-group">
+	                   <h:outputLabel for="correo"
+	                   				  value="Correo:"
+	                   				  styleClass="control-label"/>
+	
+	                   <p:inputText 	autocomplete="off"
+	                   					id="correo"
+	                   					styleClass="form-control"
+	                   					value="#{empleadoMB.empleadoBean.correo}"
+	                   					maxlength="120"
+	                   					label="correo"/>
+	               </div>
+	            </div>
+	            
+	            <div class="col-sm-4">
+	               <div class="form-group">
+	                   <h:outputLabel for="telefono"
+	                   				  value="Teléfono:"
+	                   				  styleClass="control-label"/>
+	
+	                   <p:inputText 	autocomplete="off"
+	                   					id="telefono"
+	                   					styleClass="form-control"
+	                   					value="#{empleadoMB.empleadoBean.telefono}"
+	                   					maxlength="120"
+	                   					label="telefono"/>
+	               </div>
+	            </div>
+    		</div>
+    		
+
+
+    	<div class="row">
+    	         <div class="col-sm-4 text-right" >
+            			<div class="form-group box-main-btn">
+
+            					<p:commandButton 	value="Grabar"
+                									actionListener="#{empleadoMB.grabar()}"
+                									styleClass="btn btn-primary "
+                                  					icon="icon-save"
+                									ajax="true"
+                									update="growl" />
+                									
+                				<p:commandButton 	value="Cancelar"
+                									action="#{empleadoMB.cancelar()}"
+                									styleClass="btn btn-default"
+                									ajax="false" />
+
+            			</div>
+            </div>
+            </div>
+                        
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+    </ui:define>
+
+    <ui:define name="footerCont">
+        <script type="text/javascript" charset="utf-8">
+          $("#sidebar li").removeClass("active");
+          $("#sidebar-2").addClass("active");
+        </script>
+    </ui:define>
+</ui:composition>
